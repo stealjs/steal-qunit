@@ -1,7 +1,7 @@
 {
   "name": "steal-qunit",
 	"main": "steal-qunit.js",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "dependencies": {
     "qunit": "~1.14.0"
   },
