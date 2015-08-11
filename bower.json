@@ -8,7 +8,6 @@
   "ignore": [
     "**/.*",
     "package.json",
-    "bower.json",
     "Gruntfile.js",
     "node_modules",
     "test"
