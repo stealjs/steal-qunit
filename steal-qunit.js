@@ -1,17 +1,14 @@
 "format amd";
 define([
 	"@loader",
-	"module",
 	"qunitjs/qunit/qunit",
 	"qunitjs/qunit/qunit.css!"
-], function(loader, module, QUnit){
+], function(loader, QUnit){
 
 	if(loader.has("live-reload")) setupLiveReload();
 
 	function setupLiveReload(){
-		loader.import("live-reload", { name: module.id }).then(function(reload){
-			reload(updateResults);
-		});
+		QUnit.done(updateResults);
 
 		// Check to make sure all tests have passed and update the banner class.
 		function updateResults() {
