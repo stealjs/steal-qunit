@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/stealjs/steal-qunit.svg?branch=master)](https://travis-ci.org/stealjs/steal-qunit)
+[![npm version](https://badge.fury.io/js/steal-qunit.svg)](http://badge.fury.io/js/steal-qunit)
+
 # steal-qunit
 
 This provides a bower installable QUnit that fires off all tests 
