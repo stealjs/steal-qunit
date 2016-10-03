@@ -26,6 +26,7 @@
   },
   "scripts": {
     "test": "npm run test:browser && npm run test:live-reload",
+    "publish": "git push origin && git push origin --tags",
     "test:browser": "testee test/test.html --browsers firefox --reporter Spec",
     "test:live-reload": "live-reload-test & testee test/test-live-reload.html --browsers firefox --reporter Spec",
     "release:pre": "npm version prerelease && npm publish",
