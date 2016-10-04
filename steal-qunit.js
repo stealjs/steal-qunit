@@ -77,7 +77,7 @@ define([
 
 	QUnit.config.autorun = false;
 	steal.done().then(function() {
-		if (window.Testee) {
+		if (window.Testee && window.Testee.init) {
 			Testee.init();
 		}
 		QUnit.load();
