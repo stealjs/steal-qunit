@@ -1,4 +1,5 @@
 "format cjs";
+
 if(!document.getElementById("qunit")) {
 	var qunit = document.createElement("div");
 	qunit.id = "qunit";
