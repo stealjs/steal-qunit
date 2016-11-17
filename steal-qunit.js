@@ -2,7 +2,7 @@
 define([
 	"@loader",
 	"qunitjs/qunit/qunit",
-	"qunitjs/qunit/qunit.css!"
+	"qunitjs/qunit/qunit.css"
 ], function(loader, QUnit){
 
 	if(loader.has("live-reload")) {
@@ -47,7 +47,7 @@ define([
 
 	function setupSauceLabsReporting() {
 		var log = [];
-		  
+
 		QUnit.done(function (test_results) {
 		  var tests = [];
 		  for(var i = 0, len = log.length; i < len; i++) {
@@ -61,7 +61,7 @@ define([
 		    });
 		  }
 		  test_results.tests = tests;
-		  
+
 		  window.global_test_results = test_results;
 		});
 
