@@ -3,27 +3,6 @@
   "version": "1.0.0-rc.0",
   "description": "A bower package for QUnit and StealJS",
   "main": "steal-qunit",
-  "system": {
-    "npmIgnore": {
-      "bower": true,
-      "grunt": true,
-      "grunt-cli": true,
-      "grunt-contrib-copy": true,
-      "grunt-contrib-watch": true,
-      "steal": true,
-      "steal-tools": true,
-      "testee": true
-    },
-    "meta": {
-      "qunitjs#./qunit/qunit": {
-        "format": "global",
-        "exports": "QUnit",
-        "deps": [
-          "steal-qunit/add-dom"
-        ]
-      }
-    }
-  },
   "scripts": {
     "test": "npm run test:browser && npm run test:live-reload",
     "publish": "git push origin && git push origin --tags",
@@ -56,11 +35,26 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-watch": "~0.3.0",
     "live-reload-testing": "^1.0.0",
-    "steal": "^0.11.0-pre.0",
+    "steal": "^1.0.0-rc2",
     "steal-tools": "^0.11.0-pre.0",
     "testee": "^0.3.0-pre.2"
   },
   "dependencies": {
-    "qunitjs": "^1.17.1"
+    "qunitjs": "^1.17.1",
+    "steal-css": "^1.0.0-rc.0"
+  },
+  "steal": {
+    "plugins": [
+      "steal-css"
+    ],
+    "meta": {
+      "qunitjs#./qunit/qunit": {
+        "format": "global",
+        "exports": "QUnit",
+        "deps": [
+          "steal-qunit/add-dom"
+        ]
+      }
+    }
   }
 }
