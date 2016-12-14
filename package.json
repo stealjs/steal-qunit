@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "qunitjs": "^1.17.1",
-    "steal-css": "^1.0.0-rc.0"
+    "steal-css": "^1.0.0"
   },
   "steal": {
     "plugins": [
