@@ -56,6 +56,12 @@ QUnit.test("Removing a failing test will make the tests pass", function(){
 		QUnit.test("Passing test", function(){
 			QUnit.equal(2, 2);
 		});
+
+		QUnit.module("another module");
+
+		QUnit.test("Another passing", function(){
+			QUnit.equal(1, 1);
+		});
 	*/}
 
 	F(function(){
