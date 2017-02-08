@@ -14,6 +14,13 @@ define([
 	function setupLiveReload(){
 		QUnit.done(updateResults);
 
+		function findModule(name) {
+			var mods = QUnit.config.modules;
+			return mods.filter(function(mod){
+				return mod.name === name;
+			}).pop();
+		}
+
 		function findTestResult(mod, id) {
 			var tests = mod.tests || [];
 			return tests.filter(function(test){
@@ -24,12 +31,14 @@ define([
 		// Check to make sure all tests have passed and update the banner class.
 		function updateResults() {
 			var tests = document.getElementById("qunit-tests").children;
-			var currentModule = QUnit.config.modules[QUnit.config.modules.length  - 1];
-			var node, passed = true, id, test, removedNodes = [];
+			var node, id, test, moduleName, mod;
+				passed = true, removedNodes = [];
 			for(var i = 0, len = tests.length; i < len; i++) {
 				node = tests.item(i);
 				id = node.id.split("-").pop();
-				test = findTestResult(currentModule, id);
+				moduleName = node.querySelector(".module-name").textContent;
+				mod = findModule(moduleName);
+				test = findTestResult(mod, id);
 
 				// If we found a test result, check if it passed.
 				if(test) {
