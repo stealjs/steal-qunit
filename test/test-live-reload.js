@@ -1,36 +1,67 @@
 var QUnit = require("steal-qunit");
 var F = require("funcunit");
-var liveReloadTest = require("live-reload-testing");
+var mock = require("./lr-helpers");
 
 F.attach(QUnit);
 
-QUnit.module("live-reload", {
+QUnit.module("live-reload - Passing test", {
 	setup: function(assert){
 		var done = assert.async();
+		var harness = this;
 		F.open("//tests/live-reload/test.html", function(){
+			harness.mock = mock(F.win.steal.loader);
 			done();
 		});
 	},
-	teardown: function(assert){
-		var done = assert.async();
-		liveReloadTest.reset().then(function(){
-			done();
-		});
+	teardown: function(){
+		this.mock.reset();
 	}
 });
 
-QUnit.test("a passing test becomes failing", function(){
+QUnit.test("A passing test becomes failing", function(){
+	var harness = this;
 	F("#qunit-banner").exists().hasClass("qunit-pass",  true, "the test is passing to start");
 
 	F(function(){
-		var address = "test/tests/live-reload/mod.js";
 		var content = "module.exports = 1;";
-
-		liveReloadTest.put(address, content).then(null, function(){
-			QUnit.ok(false, "live reload did not work");
-			QUnit.start();
-		});
+		harness.mock.replace("test/tests/live-reload/mod", content);
 	});
 
 	F("#qunit-banner").hasClass("qunit-fail", true, "and now it is failing");
+});
+
+QUnit.module("live-reload - Failing test", {
+	setup: function(assert){
+		var done = assert.async();
+		var harness = this;
+		F.open("//tests/live-reload-failing/test.html", function(){
+			harness.mock = mock(F.win.steal.loader);
+			done();
+		});
+	},
+	teardown: function(){
+		this.mock.reset();
+	}
+});
+
+QUnit.test("Removing a failing test will make the tests pass", function(){
+	var harness = this;
+	F("#qunit-banner").exists().hasClass("qunit-fail",  true, "the test is failing to start");
+
+	function replacement() {/*
+		var QUnit = require("steal-qunit");
+
+		QUnit.module("some module");
+
+		QUnit.test("Passing test", function(){
+			QUnit.equal(2, 2);
+		});
+	*/}
+
+	F(function(){
+		var content = harness.mock.getContent(replacement);
+		harness.mock.replace("test/tests/live-reload-failing/test", content);
+	});
+
+	F("#qunit-banner").exists().hasClass("qunit-pass",  true, "the test is passing now");
 });

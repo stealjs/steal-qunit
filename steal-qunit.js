@@ -14,18 +14,40 @@ define([
 	function setupLiveReload(){
 		QUnit.done(updateResults);
 
+		function findTestResult(mod, id) {
+			var tests = mod.tests || [];
+			return tests.filter(function(test){
+				return test.testId === id;
+			})[0];
+		}
+
 		// Check to make sure all tests have passed and update the banner class.
 		function updateResults() {
 			var tests = document.getElementById("qunit-tests").children;
-			var node, passed = true;
+			var currentModule = QUnit.config.modules[QUnit.config.modules.length  - 1];
+			var node, passed = true, id, test, removedNodes = [];
 			for(var i = 0, len = tests.length; i < len; i++) {
 				node = tests.item(i);
-				removeAllButLast(node, "runtime");
-				if(node.className !== "pass") {
-					passed = false;
-					break;
+				id = node.id.split("-").pop();
+				test = findTestResult(currentModule, id);
+
+				// If we found a test result, check if it passed.
+				if(test) {
+					removeAllButLast(node, "runtime");
+					if(node.className !== "pass") {
+						passed = false;
+						break;
+					}
+				}
+				// If we didn't find a test result this test must have been removed
+				// so we just want to remove it from the UI.
+				else {
+					removedNodes.push(node);
 				}
 			}
+			removedNodes.forEach(function(node){
+				node.parentNode.removeChild(node);
+			});
 			document.getElementById("qunit-banner").className = passed ?
 				"qunit-pass" : "qunit-fail";
 
