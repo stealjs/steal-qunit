@@ -111,7 +111,12 @@ define([
 		if (window.Testee && window.Testee.init) {
 			Testee.init();
 		}
-		QUnit.load();
+		
+		if(typeof QUnit.start === "function") {
+		  QUnit.start();
+		} else {
+		  QUnit.load();
+		}
 	});
 
 	return QUnit;
