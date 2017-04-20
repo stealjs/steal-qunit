@@ -1,5 +1,5 @@
 {
-  "name": "my-steal-qunit",
+  "name": "steal-qunit",
   "version": "1.0.1",
   "description": "A bower package for QUnit and StealJS",
   "main": "steal-qunit",
@@ -38,7 +38,7 @@
     "testee": "^0.3.0-pre.2"
   },
   "dependencies": {
-    "qunitjs": "^2.3.2",
+    "qunitjs": ">=1.17.1 || ^2.3.2",
     "steal-css": "^1.0.0"
   },
   "steal": {
