@@ -111,12 +111,14 @@ define([
 		if (window.Testee && window.Testee.init) {
 			Testee.init();
 		}
-		
-		if(typeof QUnit.start === "function") {
+
+		var qunitVersion = Number(QUnit.version.split('.')[0]);
+		if(qunitVersion >= 2) {
 		  QUnit.start();
 		} else {
 		  QUnit.load();
 		}
+
 	});
 
 	return QUnit;
