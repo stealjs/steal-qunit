@@ -1,13 +1,13 @@
 {
   "name": "steal-qunit",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.2",
   "description": "A bower package for QUnit and StealJS",
   "main": "steal-qunit",
   "scripts": {
     "test": "npm run test:browser && npm run test:live-reload",
     "publish": "git push origin && git push origin --tags",
     "test:browser": "testee test/test.html --browsers firefox --reporter Spec",
-    "test:live-reload": "live-reload-test & testee test/test-live-reload.html --browsers firefox --reporter Spec",
+    "test:live-reload": "testee test/test-live-reload.html --browsers firefox --reporter Spec",
     "release:pre": "npm version prerelease && npm publish",
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
@@ -30,18 +30,16 @@
   "devDependencies": {
     "bower": "1.8.0",
     "funcunit": "^3.0.0",
-    "grunt": "~1.0.1",
+    "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-watch": "~1.0.0",
-    "live-reload-testing": "^5.1.0",
-    "steal": "^1.0.0-rc2",
-    "steal-tools": "^0.16.8",
-    "testee": "^0.3.0-pre.2"
+    "steal": "^1.0.0",
+    "testee": "^0.8.0"
   },
   "dependencies": {
     "qunitjs": "^2.1.0",
-    "steal-css": "^1.0.0-rc.0"
+    "steal-css": "^1.0.0"
   },
   "steal": {
     "plugins": [
