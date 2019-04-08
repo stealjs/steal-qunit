@@ -15,11 +15,11 @@
   ],
 	"system": {
 		"paths": {
-			"qunitjs/qunit/*": "bower_components/qunit/qunit/*.js",
-			"qunitjs/qunit/qunit.css": "bower_components/qunit/qunit/qunit.css"
+			"qunit/qunit/*": "bower_components/qunit/qunit/*.js",
+			"qunit/qunit/qunit.css": "bower_components/qunit/qunit/qunit.css"
 		},
 		"meta": {
-			 "qunitjs/qunit/qunit": {
+			 "qunit/qunit/qunit": {
 					"format": "global",
 					"exports": "QUnit",
 					"deps": [

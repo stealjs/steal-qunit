@@ -30,11 +30,11 @@ System.config({
 	paths: {
 		"steal-qunit/*": "path/to/steal-qunit/*.js",
 		"steal-qunit": "path/to/steal-qunit/steal-qunit.js",
-		"qunitjs/qunit/*": "path/to/qunit/qunit/*.js",
-		"qunitjs/qunit/qunit.css": "path/to/qunit/qunit/qunit.css"
+		"qunit/qunit/*": "path/to/qunit/qunit/*.js",
+		"qunit/qunit/qunit.css": "path/to/qunit/qunit/qunit.css"
 	},
 	meta: {
-		"qunitjs/qunit/qunit": {
+		"qunit/qunit/qunit": {
 			"format": "global",
 			"exports": "QUnit",
 			"deps": [

@@ -1,8 +1,8 @@
 "format amd";
 define([
 	"@loader",
-	"qunitjs/qunit/qunit",
-	"qunitjs/qunit/qunit.css"
+	"qunit/qunit/qunit",
+	"qunit/qunit/qunit.css"
 ], function(loader, QUnit){
 
 	if(loader.has("live-reload")) {
