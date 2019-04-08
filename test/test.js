@@ -1,4 +1,6 @@
-import QUnit from "steal-qunit";
+var QUnit = require("steal-qunit");
+
+require("./test-banner");
 
 QUnit.module("A module");
 

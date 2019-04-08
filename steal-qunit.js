@@ -43,7 +43,8 @@ define([
 				// If we found a test result, check if it passed.
 				if(test) {
 					removeAllButLast(node, "runtime");
-					if(node.className !== "pass") {
+					if(node.hasAttribute && node.hasAttribute("class") &&
+						node.className !== "pass") {
 						passed = false;
 						break;
 					}
