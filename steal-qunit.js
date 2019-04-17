@@ -107,17 +107,15 @@ define([
 		});
 	}
 
-	QUnit.config.autorun = false;
+	QUnit.config.autostart = false;
 	steal.done().then(function() {
 		if (window.Testee && window.Testee.init) {
 			Testee.init();
 		}
 
 		var qunitVersion = Number(QUnit.version.split('.')[0]);
-		if(qunitVersion >= 2) {
-		  QUnit.start();
-		} else {
-		  QUnit.load();
+		if(qunitVersion < 2) {
+			QUnit.load();
 		}
 
 	});
