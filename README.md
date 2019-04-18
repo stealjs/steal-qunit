@@ -3,7 +3,7 @@
 
 # steal-qunit
 
-This provides a bower installable QUnit that fires off all tests 
+This provides an npm installable QUnit that fires off all tests 
 when the app has finished loading.
 
 ## Install
