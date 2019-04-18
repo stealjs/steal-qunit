@@ -14,16 +14,9 @@ From NPM:
 npm install steal-qunit --save-dev
 ```
 
-From Bower:
-
-```shell
-bower install steal-qunit --save-dev
-```
-
 ## Configuration
 
-If you are using the [npm](http://stealjs.com/docs/npm.html) or [bower](http://stealjs.com/docs/bower.html)
-plugins no configuration is needed. Otherwise configure the `paths` and `meta` properties:
+If you are using the [npm](http://stealjs.com/docs/npm.html) no configuration is needed. Otherwise configure the `paths` and `meta` properties:
 
 ```js
 System.config({
