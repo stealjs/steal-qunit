@@ -5,7 +5,7 @@ var mock = require("./lr-helpers");
 F.attach(QUnit);
 
 QUnit.module("live-reload - Passing test", {
-	setup: function(assert){
+	beforeEach: function(assert){
 		var done = assert.async();
 		var harness = this;
 		F.open("//tests/live-reload/test.html", function(){
@@ -13,7 +13,7 @@ QUnit.module("live-reload - Passing test", {
 			done();
 		});
 	},
-	teardown: function(){
+	afterEach: function(){
 		this.mock.reset();
 	}
 });
@@ -31,7 +31,7 @@ QUnit.test("A passing test becomes failing", function(){
 });
 
 QUnit.module("live-reload - Failing test", {
-	setup: function(assert){
+	beforeEach: function(assert){
 		var done = assert.async();
 		var harness = this;
 		F.open("//tests/live-reload-failing/test.html", function(){
@@ -39,7 +39,7 @@ QUnit.module("live-reload - Failing test", {
 			done();
 		});
 	},
-	teardown: function(){
+	afterEach: function(){
 		this.mock.reset();
 	}
 });
