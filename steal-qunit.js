@@ -1,8 +1,8 @@
 "format amd";
 define([
 	"@loader",
-	"qunitjs/qunit/qunit",
-	"qunitjs/qunit/qunit.css"
+	"qunit/qunit/qunit",
+	"qunit/qunit/qunit.css"
 ], function(loader, QUnit){
 
 	if(loader.has("live-reload")) {
@@ -107,12 +107,17 @@ define([
 		});
 	}
 
-	QUnit.config.autorun = false;
+	QUnit.config.autostart = false;
 	steal.done().then(function() {
 		if (window.Testee && window.Testee.init) {
 			Testee.init();
 		}
-		QUnit.load();
+
+		var qunitVersion = Number(QUnit.version.split('.')[0]);
+		if(qunitVersion < 2) {
+			QUnit.load();
+		}
+
 	});
 
 	return QUnit;

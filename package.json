@@ -1,10 +1,10 @@
 {
   "name": "steal-qunit",
-  "version": "1.0.2",
-  "description": "A bower package for QUnit and StealJS",
+  "version": "2.0.0",
+  "description": "QUnit and StealJS",
   "main": "steal-qunit",
   "scripts": {
-    "test": "npm run test:browser && npm run test:live-reload",
+    "test": "npm run test:browser",
     "publish": "git push origin && git push origin --tags",
     "test:browser": "testee test/test.html --browsers firefox --reporter Spec",
     "test:live-reload": "testee test/test-live-reload.html --browsers firefox --reporter Spec",
@@ -28,17 +28,12 @@
   },
   "homepage": "https://github.com/bitovi/steal-qunit",
   "devDependencies": {
-    "bower": "1.3.8",
     "funcunit": "^3.0.0",
-    "grunt": "~0.4.1",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-watch": "~0.3.0",
-    "steal": "^1.0.0",
-    "testee": "^0.3.0-pre.2"
+    "steal": "^2.0.0",
+    "testee": "^0.9.0"
   },
   "dependencies": {
-    "qunitjs": "^1.17.1",
+    "qunit": "^2.0.0",
     "steal-css": "^1.0.0"
   },
   "steal": {
@@ -46,7 +41,7 @@
       "steal-css"
     ],
     "meta": {
-      "qunitjs#./qunit/qunit": {
+      "qunit#./qunit/qunit": {
         "format": "global",
         "exports": "QUnit",
         "deps": [

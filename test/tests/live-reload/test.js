@@ -3,6 +3,6 @@ var mod = require("./mod");
 
 QUnit.module("some module");
 
-QUnit.test("some test", function(){
-	QUnit.equal(mod, 2, "mod has the right value");
+QUnit.test("some test", function(assert){
+	assert.equal(mod, 2, "mod has the right value");
 });
